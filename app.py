@@ -1,13 +1,11 @@
 from flask import Flask, render_template
+from dotenv import load_dotenv
 import requests
 import json
 import os
 
-from dotenv import load_dotenv
 
 load_dotenv()
-
-
 SPACE_ID = os.environ.get("SPACE_ID")
 DELIVERY_API_KEY = os.environ.get("DELIVERY_API_KEY")
 DEBUG_STATUS = os.environ.get("DEBUG_STATUS")
@@ -26,7 +24,8 @@ query = """{
   }
 }"""
 headers = {
-    "Content-Type": "application/json", "Authorization": f"Bearer {DELIVERY_API_KEY}",
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {DELIVERY_API_KEY}",
 }
 
 app = Flask(__name__)
