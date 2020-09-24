@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <p class="navbar-item">{% block title %}Super Hero Gifs!{% endblock %}</p>
+    </div>
+  </div>
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <button>Log in</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+    {% for item in superheroCollection %}
+      <div class="column is-one-quarter">
+        <div class="card "> 
+          <div class="card-image">
+            <figure class="image is-centered">
+              <img src={{item.image.url}} alt={{item.image.description}} />
+            </figure>
+          </div>
+          <header class="card-header">
+            <p class="card-header-title is-centered ">{{item.name}}</p>
+          </header>
+        </div>
+      </div>
+    {%endfor%}
+    </div>
+  </div>
+</section>
+{% endblock %}
